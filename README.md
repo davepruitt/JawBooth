@@ -1,2 +1,9 @@
 # JawBooth
-This project is designed to assess cortical motor map changes due to pellet eating behavior paired with vagus nerve stimulation 
+
+This project is designed to assess cortical motor map changes due to pellet eating behavior paired with vagus nerve stimulation. In this project, we designed a booth in which rats are dispensed reward pellets at regular intervals. After a reward pellet is dispensed, we detect when the rat retrieves the reward pellet using an IR sensor that is positioned around the pellet receiver. Following retrieval of the pellet, we deliver vagus nerve stimulation to the rats. Our hypothesis is that vagus nerve stimulation will result in cortical map changes within motor cortex.
+
+We primarily reused booths designed and built for previous studies. We did, however, design new doors for the booths that had a central pellet receiver / nosepoke with an attached IR sensor. We also designed a circuit board to mount directly onto this door. All designs for the new door, pellet receiver, and printed circuit board are located in the "CAD Designs" folder. The printed circuit board was initially designed in Eagle by Drew Sloan (Vulintus, Inc). I made further modifications with the assistance of Holle Carey (Vulintus, Inc) and Simran Singh (TxBDC). We printed the circuit board using a desktop PCB milling machine (https://www.bantamtools.com/products/bantam-tools-desktop-pcb-milling-machine). 
+
+We designed the circuit board such that an Arduino Uno fits onto it. The purpose of the Arduino is to read the IR sensor data and transmit that data back to the computer, as well as send trigger signals to the pellet dispenser and to the neural stimulator. I wrote the code that resides on the Arduino board. It is written in C. The desktop code is written in C# and WPF. It manages a full session and presents a graphical user interface to the desktop user. It determines when feeds and stimulations will occur, and analyzes the IR signal data that it receives from the Arduino board.
+
+Any questions can be directed to myself (David Pruitt). Feel free to contact me.
