@@ -1,0 +1,146 @@
+﻿<Window x:Class="JawBooth.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JawBooth"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="625"
+        Closed="Window_Closed"
+        >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center"
+                    Grid.Row="0"
+                    >
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Feeder"
+                           HorizontalAlignment="Center"
+                           />
+                <Rectangle Fill="{Binding Path=FeederColor, FallbackValue=Red}" 
+                           Width="100" 
+                           Height="100" 
+                           />
+                <TextBlock Text="{Binding Path=FeederCount, FallbackValue=0}" 
+                           HorizontalAlignment="Center"
+                           />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Nosepoke"
+                           HorizontalAlignment="Center"
+                           />
+                <Rectangle Fill="{Binding Path=NosepokeColor, FallbackValue=Red}" 
+                           Width="100" 
+                           Height="100" 
+                           />
+                <TextBlock Text="{Binding Path=NosepokeCount, FallbackValue=0}" 
+                           HorizontalAlignment="Center"
+                           />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Stimulator"
+                           HorizontalAlignment="Center"
+                           />
+                <Rectangle Fill="{Binding Path=StimulatorColor, FallbackValue=Red}" 
+                           Width="100" 
+                           Height="100" 
+                           />
+                <TextBlock Text="{Binding Path=StimulatorCount, FallbackValue=0}" 
+                           HorizontalAlignment="Center"
+                           />
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Animal Name:" 
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="5,5,5,5"
+                       />
+            <TextBox Text="{Binding Path=RatName, Mode=TwoWay}"
+                     FontSize="24"
+                     FontWeight="Bold"
+                     Width="300"
+                     Margin="5,5,5,5"
+                     />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <ComboBox SelectedIndex="{Binding Path=StimulationSelectedIndex, FallbackValue=0}"
+                      Height="30" Width="500" FontSize="18" Margin="10"
+                      VerticalContentAlignment="Center"
+                      HorizontalContentAlignment="Center">
+                <ComboBox.Items>
+                    <ComboBoxItem Content="Stimulation OFF" />
+                    <ComboBoxItem Content="Stimulation ON" />
+                </ComboBox.Items>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3">
+            <TextBlock Text="Booth Number:" 
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="5,5,5,5"
+                       />
+            <TextBlock Text="{Binding Path=BoothNumber, FallbackValue=1}"
+                     FontSize="24"
+                     Foreground="Green"
+                     FontWeight="Bold"
+                     Width="300"
+                     Margin="5,5,5,5"
+                     />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" 
+                    HorizontalAlignment="Center"
+                    Orientation="Vertical">
+            <Button Content="{Binding Path=ButtonSessionContent, FallbackValue=Start}" 
+                    Foreground="{Binding Path=ButtonSessionColor, FallbackValue=Black}"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Width="300"
+                    Height="75"
+                    Margin="10"
+                    Command="{Binding Path=SessionButtonCommand}"
+                    />
+
+            <TextBlock Text="{Binding Path=SessionTimerText, FallbackValue=SessionTimer}" 
+                       HorizontalAlignment="Center"
+                       Foreground="Green"
+                       FontWeight="Bold"
+                       />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Content="Manual feed" 
+                        Margin="0,0,50,0"
+                        Width="100"
+                        Height="30"
+                        Command="{Binding Path=ManualFeedCommand}"
+                        />
+                <Button Content="Manual stim" 
+                        Margin="50,0,0,0"
+                        Width="100"
+                        Height="30"
+                        Command="{Binding Path=ManualStimCommand}"
+                        />
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

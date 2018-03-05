@@ -1,0 +1,7 @@
+VNS Delay: 2000
+Feeder Timing: 15
+Feeder Percentage: 100
+Save Path: C:\Jaw Booth Saved Files\
+Secondary Save Path: Z:\Jaw Booth Saved Files\
+IR Threshold: 450
+Booth Specific IR Threshold: 6, 480
